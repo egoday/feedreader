@@ -1,9 +1,9 @@
 package com.egoday.feedreader.feed.meta;
 
 public class Contributor_ {
-
-	public static final Object parseName = null;
+	public static final String parseName = "contributor";
 	
-	// TODO
-
+	public static final String name = "name";
+	public static final String uri = "uri";
+	public static final String email = "email";
 }

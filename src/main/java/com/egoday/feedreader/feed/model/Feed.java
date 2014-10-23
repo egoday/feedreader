@@ -42,11 +42,12 @@ public final class Feed {
 	private final List<Category> categories;
 	
 	private final List<Contributor> contributors;
+	
+	private final Generator generator;
 
 	private final String id;
 
 	private final Date updated;
-
 
 	private final String title;
 
@@ -58,6 +59,7 @@ public final class Feed {
 			final List<Author> authors,
 			final List<Category> categories,
 			final List<Contributor> contributors,
+			final Generator generator,
 			final String id,
 			final Date updated,
 			final String title,
@@ -67,6 +69,7 @@ public final class Feed {
 		this.authors = authors;
 		this.categories = categories;
 		this.contributors = contributors;
+		this.generator = generator;
 		this.id = id;
 		this.updated = updated;
 		this.title = title;
@@ -84,6 +87,10 @@ public final class Feed {
 
 	public List<Contributor> getContributors() {
 		return contributors;
+	}
+	
+	public Generator getGenerator() {
+		return generator;
 	}
 
 	public String getId() {

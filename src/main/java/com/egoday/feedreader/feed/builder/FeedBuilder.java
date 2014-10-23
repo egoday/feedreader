@@ -14,11 +14,13 @@ import com.egoday.feedreader.feed.meta.Category_;
 import com.egoday.feedreader.feed.meta.Contributor_;
 import com.egoday.feedreader.feed.meta.Entry_;
 import com.egoday.feedreader.feed.meta.Feed_;
+import com.egoday.feedreader.feed.meta.Generator_;
 import com.egoday.feedreader.feed.model.Author;
 import com.egoday.feedreader.feed.model.Category;
 import com.egoday.feedreader.feed.model.Contributor;
 import com.egoday.feedreader.feed.model.Entry;
 import com.egoday.feedreader.feed.model.Feed;
+import com.egoday.feedreader.feed.model.Generator;
 import com.egoday.feedreader.feed.util.DateConstruct;
 
 public class FeedBuilder {
@@ -36,6 +38,7 @@ public class FeedBuilder {
 		List<Author> authors = new ArrayList<>();
 		List<Category> categories = new ArrayList<>();
 		List<Contributor> contributors = new ArrayList<>();
+		Generator generator = null;
 		String id = null;
 		Date updated = null;
 		List<Entry> entries = new ArrayList<>();
@@ -60,6 +63,8 @@ public class FeedBuilder {
 					} else if (parseName.equals(Contributor_.parseName)) {
 						Contributor contributor = ContributorBuilder.build(parser);
 						contributors.add(contributor);
+					} else if (parseName.equals(Generator_.parseName)) {
+						generator = GeneratorBuilder.build(parser);
 					}
 
 					break;
@@ -77,7 +82,14 @@ public class FeedBuilder {
 					} else if (parseName.equals(Feed_.subtitle)) {
 						subtitle = parseText;
 					} else if (parseName.equals(Feed_.parseName)) {
-						feed = new Feed(authors, categories, contributors, id, updated, title, subtitle,
+						feed = new Feed(authors,
+								categories,
+								contributors,
+								generator,
+								id,
+								updated,
+								title,
+								subtitle,
 								entries);
 					}
 
