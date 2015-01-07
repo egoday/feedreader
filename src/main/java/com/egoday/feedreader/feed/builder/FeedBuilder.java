@@ -15,12 +15,18 @@ import com.egoday.feedreader.feed.meta.Contributor_;
 import com.egoday.feedreader.feed.meta.Entry_;
 import com.egoday.feedreader.feed.meta.Feed_;
 import com.egoday.feedreader.feed.meta.Generator_;
+import com.egoday.feedreader.feed.meta.Icon_;
+import com.egoday.feedreader.feed.meta.Link_;
+import com.egoday.feedreader.feed.meta.Logo_;
 import com.egoday.feedreader.feed.model.Author;
 import com.egoday.feedreader.feed.model.Category;
 import com.egoday.feedreader.feed.model.Contributor;
 import com.egoday.feedreader.feed.model.Entry;
 import com.egoday.feedreader.feed.model.Feed;
 import com.egoday.feedreader.feed.model.Generator;
+import com.egoday.feedreader.feed.model.Icon;
+import com.egoday.feedreader.feed.model.Link;
+import com.egoday.feedreader.feed.model.Logo;
 import com.egoday.feedreader.feed.util.DateConstruct;
 
 public class FeedBuilder {
@@ -39,7 +45,10 @@ public class FeedBuilder {
 		List<Category> categories = new ArrayList<>();
 		List<Contributor> contributors = new ArrayList<>();
 		Generator generator = null;
+		Icon icon = null;
 		String id = null;
+		List<Link> links = new ArrayList<>();
+		Logo logo = null;
 		Date updated = null;
 		List<Entry> entries = new ArrayList<>();
 		String title = null;
@@ -65,6 +74,13 @@ public class FeedBuilder {
 						contributors.add(contributor);
 					} else if (parseName.equals(Generator_.parseName)) {
 						generator = GeneratorBuilder.build(parser);
+					} else if (parseName.equals(Icon_.parseName)) {
+						icon = IconBuilder.build(parser);
+					} else if (parseName.equals(Link_.parseName)) {
+						Link link = LinkBuilder.build(parser);
+						links.add(link);
+					} else if (parseName.equals(Logo_.parseName)) {
+						logo = LogoBuilder.build(parser);
 					}
 
 					break;
@@ -86,7 +102,10 @@ public class FeedBuilder {
 								categories,
 								contributors,
 								generator,
+								icon,
 								id,
+								links,
+								logo,
 								updated,
 								title,
 								subtitle,

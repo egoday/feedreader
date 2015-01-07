@@ -12,18 +12,34 @@ package com.egoday.feedreader.feed.model;
  */
 public final class Author {
 
-	public final String name;
+	private final String name;
 	
-	public final String uri;
+	private final String uri;
 	
-	public final String email;
+	private final String email;
 	
-	public final GdImage image;
+	private final GdImage image;
 	
 	public Author(final String name, final String uri, final String email, final GdImage image) {
 		this.name = name;
 		this.uri = uri;
 		this.email = email;
 		this.image = image;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public GdImage getImage() {
+		return image;
 	}
 }

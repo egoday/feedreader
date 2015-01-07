@@ -44,8 +44,14 @@ public final class Feed {
 	private final List<Contributor> contributors;
 	
 	private final Generator generator;
+	
+	private final Icon icon;
 
 	private final String id;
+	
+	private final List<Link> links;
+	
+	private final Logo logo;
 
 	private final Date updated;
 
@@ -60,7 +66,10 @@ public final class Feed {
 			final List<Category> categories,
 			final List<Contributor> contributors,
 			final Generator generator,
+			final Icon icon,
 			final String id,
+			final List<Link> links,
+			final Logo logo,
 			final Date updated,
 			final String title,
 			final String subtitle,
@@ -70,7 +79,10 @@ public final class Feed {
 		this.categories = categories;
 		this.contributors = contributors;
 		this.generator = generator;
+		this.icon = icon;
 		this.id = id;
+		this.links = links;
+		this.logo = logo;
 		this.updated = updated;
 		this.title = title;
 		this.subtitle = subtitle;
@@ -92,9 +104,21 @@ public final class Feed {
 	public Generator getGenerator() {
 		return generator;
 	}
+	
+	public Icon getIcon() {
+		return icon;
+	}
 
 	public String getId() {
 		return id;
+	}
+	
+	public List<Link> getLinks() {
+		return links;
+	}
+	
+	public Logo getLogo() {
+		return logo;
 	}
 
 	public Date getUpdated() {

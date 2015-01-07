@@ -7,7 +7,10 @@ public class Feed_ {
 	public static final String categories = "categories";
 	public static final String contributors = "contributors";
 	public static final String generator = "generator";
+	public static final String icon = "icon";
 	public static final String id = "id";
+	public static final String links = "links";
+	public static final String logo = "logo";
 	public static final String updated = "updated";
 	public static final String title = "title";
 	public static final String subtitle = "subtitle";

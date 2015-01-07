@@ -13,15 +13,17 @@ public final class LinkBuilder {
 	public static Link build(XmlPullParser parser) throws XmlPullParserException, IOException {
 		parser.require(XmlPullParser.START_TAG, null, Link_.parseName);
 		
+		String href = parser.getAttributeValue(null, Link_.href);
 		String rel = parser.getAttributeValue(null, Link_.rel);
 		String type = parser.getAttributeValue(null, Link_.type);
-		String href = parser.getAttributeValue(null, Link_.href);
+		String hreflang = parser.getAttributeValue(null, Link_.hreflang);
 		String title = parser.getAttributeValue(null, Link_.title);
+		String length = parser.getAttributeValue(null, Link_.length);
 		
 		parser.nextTag();
 		
 		parser.require(XmlPullParser.END_TAG, null, Link_.parseName);
 
-		return new Link(rel, type, href, title);
+		return new Link(href, rel, type, hreflang, title, length);
 	}
 }

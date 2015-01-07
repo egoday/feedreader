@@ -2,13 +2,13 @@ package com.egoday.feedreader.feed.model;
 
 public final class GdImage {
 
-	public final String rel;
+	private final String rel;
 	
-	public final Integer height;
+	private final Integer height;
 
-	public final Integer width;
+	private final Integer width;
 	
-	public final String src;
+	private final String src;
 	
 	public GdImage(final String rel, final Integer height, final Integer width, final String src) {
 		this.rel = rel;
